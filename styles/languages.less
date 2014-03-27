@@ -1,4 +1,4 @@
-@import '@{colors-path}/colors';
+@import 'colors';
 @import (less) "@{language-bower-path}/hint.css/hint.css";
 
 #list-of-languages > p > a {
@@ -110,6 +110,52 @@
   }
 }
 
+.all-language-picker-box {
+  display: none;
+  bottom: 100px;
+  position: absolute;
+  width: 135px;
+  height: 350px;
+  overflow-x: none;
+  overflow-y: scroll;
+  font-size: 14px;
+  border: 1px solid @blue;
+  background: white;
+  padding: 1em;
+  z-index: 9999;
+  .list a {
+    border: none;
+    background: none;
+    padding: 5px;
+    border-radius: 3px;
+    &.selected {
+      background: @yellow;
+      color: darken(@yellow, 30%);
+    }
+  }
+  .input-wrapper {
+    display: block;
+    margin-bottom: 10px;
+    width: 135px;;
+  }
+  .all-language-search {
+    display: block;
+    width: 135px;
+    position: static;
+  }
+  .english-name {
+    display: none;
+  }
+  .list {
+    padding: 0;
+    list-style: none;
+    li {
+      line-height: 1.6em;
+      display: block;
+    }
+  }
+}
+
 .col {
   -moz-column-count: 3;
   -webkit-column-count: 3;
@@ -182,6 +228,13 @@
 }
 
 label[for="language-search"] {
+  position: absolute;
+  left: 0.6em;
+  top: 0.5em;
+  color: #CCC;
+}
+
+label[for="all-language-search"] {
   position: absolute;
   left: 0.6em;
   top: 0.5em;

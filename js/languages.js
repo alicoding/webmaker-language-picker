@@ -11,6 +11,26 @@ define(['jquery', 'list', 'fuzzySearch', 'analytics'], function ($, List, Fuzzy,
       var $clickLang = $('.langList');
       var cssOptions = {};
 
+
+      $(".all-language-picker").click(function (e) {
+        $(".all-language-picker-box").show();
+      });
+
+      $(document).keyup(function(e) {
+        if (e.keyCode == 27) { // esc keycode
+          $(".all-language-picker-box").hide();
+        }
+      });
+
+      $(document).on('mousedown', function hideAllLangList() {
+          $(".all-language-picker-box").hide();
+          $(document).off('mousedown', hideAllLangList);
+        });
+
+      $(".all-language-picker").on('mousedown', function (e) {
+        e.stopPropagation();
+      });
+
       $clickLang.click(function () {
         analytics.event('Language Picked', {
           label: $(this).data().value

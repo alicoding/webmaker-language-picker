@@ -1,0 +1,18 @@
+<span class="all-language-picker">
+  <a id="current-language" class="selected">
+    {{localeInfo.name}}
+  </a>
+  <div id="all-list-of-languages" class="all-language-picker-box" dir="{{localeInfo.direction}}">
+    <div class="input-wrapper">
+      <label for="all-language-search"><i class="icon-search"></i></label>
+      <input id="all-language-search" class="all-language-search">
+    </div>
+    <ul class="list" data-supported="{{languages}}">
+    {% for language in languages %}
+    <li data-value="{{language}}" class="langList clearfix"><a{% if language == localeInfo.lang %} class="selected"{% endif %} href="#" target="_self">
+      <span class="localized-name">{{ languageNameFor(language) }}</span>
+    </a></li>
+    {% endfor %}
+    </ul>
+  </div>
+</span>
